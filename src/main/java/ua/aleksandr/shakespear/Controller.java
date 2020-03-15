@@ -33,8 +33,10 @@ public class Controller {
         Map<String, Integer> map = model.searchWord(keyWord);
         if (map.isEmpty()) {
             view.printNoMatches();
+        }else{
+           map = model.sortMap(map);
+           view.printResult(map);
         }
-        view.printResult(map);
     }
 
     private int getValidNumber() throws IOException {

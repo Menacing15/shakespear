@@ -74,4 +74,14 @@ public class Model {
         }
         return hashMap.get(word);
     }
+
+     Map<String, Integer> sortMap(Map<String, Integer> map) {
+        List<Map.Entry<String, Integer>> resultList= new ArrayList<>((map.entrySet()));
+        resultList.sort((a, b) -> b.getValue() - a.getValue());
+        HashMap<String, Integer> sortedMap = new LinkedHashMap<>();
+        for (Map.Entry<String, Integer> mapEntry : resultList) {
+            sortedMap.put(mapEntry.getKey(), mapEntry.getValue());
+        }
+        return sortedMap;
+     }
 }
